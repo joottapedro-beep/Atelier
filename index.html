@@ -796,7 +796,7 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form>
+                <form onsubmit="sendEmail(event)">
                     <div class="form-group">
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" name="nome" required>
@@ -850,5 +850,18 @@
             });
         });
     </script>
+    <script>
+function sendEmail(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const mailtoLink = `mailto:joottapedro@gmail.com?subject=Pedido de Orçamento&body=Nome: ${nome}%0AEmail: ${email}%0AMensagem: ${mensagem}`;
+
+    window.location.href = mailtoLink;
+}
+</script>
 </body>
 </html>
